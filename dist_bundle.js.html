@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: dist/bundle.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: dist/bundle.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>// src/runtime.js
+/**
+ * Base class for Avenx components.
+ * Handles reactivity, rendering, and event binding.
+ */
+class AvenxComponent {
+    /**
+     * Creates an instance of AvenxComponent.
+     * @param {Object} [initialState={}] - The initial local state of the component.
+     * @param {Object} [bridges={}] - Shared reactive states (bridges) accessible to the component.
+     */
+    constructor(initialState = {}, bridges = {}) {
+        this.element = null;
+        this._template = '';
+        this.methods = {};
+        this.bridges = bridges;
+        const self = this;
+
+        // Reaktivität: Proxy triggert Re-Render bei Änderungen
+        this.state = new Proxy(initialState, {
+            set(target, key, value) {
+                target[key] = value;
+                self.update();
+                return true;
+            },
+            get(target, key) {
+                return target[key];
+            }
+        });
+    }
+
+    /**
+     * Executes a string of JavaScript code in the context of the component.
+     * Used for inline event handlers (e.g., @click="count++").
+     * @param {string} code - The code to execute.
+     * @param {Event|null} [event=null] - The event object if triggered by an event.
+     * @private
+     */
+    _execute(code, event = null) {
+        const context = { ...this.state, ...this.methods, ...this.bridges, event };
+        try {
+            const fn = new Function(...Object.keys(context), `with(this) { ${code} }`);
+            fn.call(this.state, ...Object.values(context));
+        } catch (e) { console.error("Avenx Exec Error:", e); }
+    }
+
+    /**
+     * Renders the component's template by interpolating expressions.
+     * @returns {string} The rendered HTML string.
+     */
+    render() {
+        let html = this._template;
+        // Einfache {{ var }} Interpolation
+        return html.replace(/\{\{\s*(.*?)\s*\}\}/g, (_, expr) => {
+            const context = { ...this.state, ...this.bridges };
+            try {
+                return new Function(...Object.keys(context), `return ${expr}`).call(this.state, ...Object.values(context));
+            } catch (e) { 
+                console.warn("Avenx Render Warning:", e, "Expression:", expr);
+                return ''; 
+            }
+        });
+    }
+
+    /**
+     * Updates the component's DOM element with the rendered template and re-binds events.
+     */
+    update() {
+        if (!this.element) return;
+        this.element.innerHTML = this.render();
+        this._bindEvents();
+    }
+
+    /**
+     * Scans the component's DOM for attributes starting with '@' and binds them as event listeners.
+     * @private
+     */
+    _bindEvents() {
+        this.element.querySelectorAll('*').forEach(el => {
+            Array.from(el.attributes).forEach(attr => {
+                if (attr.name.startsWith('@')) {
+                    const eventName = attr.name.substring(1);
+                    el.addEventListener(eventName, (e) => {
+                        // e.preventDefault(); // Sometimes we want default behavior (like input)
+                        this._execute(attr.value, e);
+                    });
+                }
+            });
+        });
+    }
+
+    /**
+     * Mounts the component to a target DOM element.
+     * @param {HTMLElement} target - The DOM element where the component should be mounted.
+     */
+    mount(target) {
+        this.element = target;
+        this.update();
+    }
+}
+
+/**
+ * Main application class for Avenx.
+ * Manages component registration, bridges, and application mounting.
+ */
+class AvenxApp {
+    /**
+     * Creates an instance of AvenxApp.
+     * @param {Object} config - The application configuration.
+     * @param {string} config.target - The selector for the main application target element.
+     */
+    constructor(config) {
+        this.target = document.querySelector(config.target);
+        this.components = new Map();
+        this.bridges = {};
+        this.activeComponents = [];
+    }
+
+    /**
+     * Registers a component class with a given name.
+     * @param {string} name - The name of the component.
+     * @param {AvenxComponent} compClass - The component class (constructor) to register.
+     */
+    register(name, compClass) { this.components.set(name, compClass); }
+    
+    /**
+     * Registers a shared reactive state (bridge).
+     * @param {string} name - The name of the bridge.
+     * @param {Object} initialState - The initial state of the bridge.
+     */
+    registerBridge(name, initialState) {
+        const self = this;
+        const reactiveState = new Proxy(initialState, {
+            set(target, key, value) {
+                target[key] = value;
+                self.updateAll();
+                return true;
+            },
+            get(target, key) {
+                return target[key];
+            }
+        });
+        this.bridges[name] = reactiveState;
+    }
+
+    /**
+     * Triggers an update (re-render) for all active component instances.
+     */
+    updateAll() {
+        this.activeComponents.forEach(comp => comp.update());
+    }
+
+    /**
+     * Mounts a registered component to a target element.
+     * @param {string} name - The name of the registered component.
+     * @param {string|null} [targetSelector=null] - The selector for the target element. If null, uses the app's default target.
+     */
+    mount(name, targetSelector = null) {
+        const Comp = this.components.get(name);
+        const target = targetSelector ? document.querySelector(targetSelector) : this.target;
+        if (Comp &amp;&amp; target) {
+            const compInstance = new Comp(this.bridges);
+            compInstance.mount(target);
+            this.activeComponents.push(compInstance);
+        }
+    }
+}
+
+class Counter extends AvenxComponent {
+    constructor(bridges) {
+        super({"count":0,"step":1}, bridges);
+        this._template = `&lt;div class="avenx-e287f5e0">
+    &lt;h1 @click="count = 0" class="avenx-9337e1c1">
+        Avenx-JS @css PoC
+    &lt;/h1>
+    &lt;div class="avenx-fce01bb2">
+        {{ count }}
+    &lt;/div>
+    &lt;button @click="count += step; log()" class="avenx-ab40aff8">
+        Erhöhen (+{{ step }})
+    &lt;/button>
+&lt;/div>`;
+        this.methods = { log: function() { console.log("Neuer Stand:", count); } };
+    }
+}
+class Display extends AvenxComponent {
+    constructor(bridges) {
+        super({}, bridges);
+        this._template = `&lt;div class="avenx-74e33e8e">
+    &lt;div class="avenx-63f81c08">
+        Globaler Brücken-Zähler
+    &lt;/div>
+    &lt;div class="avenx-1053fd5c">
+        {{ CounterBridge.count }}
+    &lt;/div>
+&lt;/div>`;
+        this.methods = {  };
+    }
+}
+class Source extends AvenxComponent {
+    constructor(bridges) {
+        super({}, bridges);
+        this._template = `&lt;div class="avenx-5ea87827">
+    &lt;div class="avenx-11ab6060">
+        Brücken-Steuerung
+    &lt;/div>
+    &lt;button @click="CounterBridge.count++" class="avenx-1f9e7009">
+        Zähler erhöhen
+    &lt;/button>
+&lt;/div>`;
+        this.methods = {  };
+    }
+}
+(function(){
+
+
+
+
+const app = new AvenxApp({ target: '#app' });
+app.registerBridge('CounterBridge', {
+    count: 0
+});
+
+
+app.register('Source', Source);
+app.register('Display', Display);
+
+app.mount('Source', '#source');
+app.mount('Display', '#display');
+
+})();</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="AvenxApp.html">AvenxApp</a></li><li><a href="AvenxComponent.html">AvenxComponent</a></li></ul><h3>Global</h3><ul><li><a href="global.html#build">build</a></li><li><a href="global.html#parseAXT">parseAXT</a></li><li><a href="global.html#processCSS">processCSS</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Mon May 11 2026 09:02:52 GMT+0200 (Mitteleuropäische Sommerzeit)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
