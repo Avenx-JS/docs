@@ -30,7 +30,9 @@
     
         <h2><span class="attribs"><span class="type-signature"></span></span>AvenxApp<span class="signature">(config)</span><span class="type-signature"></span></h2>
         
-            <div class="class-description">Main application class for Avenx.Manages component registration, bridges, and application mounting.</div>
+            <div class="class-description"><p>AvenxApp is the main orchestrator for an Avenx application.
+It manages the registration of component classes, the creation and management of shared reactive states (bridges),
+and the mounting of component instances to the DOM.</p></div>
         
     
 </header>
@@ -53,7 +55,7 @@
 
 
 <div class="description">
-    Creates an instance of AvenxApp.
+    <p>Creates an instance of AvenxApp.</p>
 </div>
 
 
@@ -105,7 +107,7 @@
 
             
 
-            <td class="description last">The application configuration.
+            <td class="description last"><p>The application configuration.</p>
                 <h6>Properties</h6>
                 
 
@@ -147,7 +149,7 @@
 
             
 
-            <td class="description last">The selector for the main application target element.</td>
+            <td class="description last"><p>The CSS selector for the main application container.</p></td>
         </tr>
 
     
@@ -195,7 +197,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="dist_bundle.js.html">dist/bundle.js</a>, <a href="dist_bundle.js.html#line106">line 106</a>
+        <a href="lib_runtime_AvenxApp.js.html">lib/runtime/AvenxApp.js</a>, <a href="lib_runtime_AvenxApp.js.html#line6">line 6</a>
     </li></ul></dd>
     
 
@@ -248,141 +250,30 @@
     
 
     
-
-    
-        <h3 class="subsection-title">Methods</h3>
+        <h3 class="subsection-title">Members</h3>
 
         
             
+<h4 class="name" id="bridges"><span class="type-signature"></span>bridges<span class="type-signature"> :Object.&lt;string, Proxy></span></h4>
 
-    
-
-    
-    <h4 class="name" id="mount"><span class="type-signature"></span>mount<span class="signature">(name, targetSelector<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
-    
-
-    
 
 
 
 <div class="description">
-    Mounts a registered component to a target element.
+    <p>A map of shared reactive state objects (bridges).</p>
 </div>
 
 
 
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Attributes</th>
-        
-
-        
-        <th>Default</th>
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
+    <h5>Type:</h5>
+    <ul>
+        <li>
             
-                <td class="name"><code>name</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
+<span class="param-type">Object.&lt;string, Proxy></span>
 
 
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                </td>
-            
-
-            <td class="description last">The name of the registered component.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>targetSelector</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-|
-
-<span class="param-type">null</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
-
-            <td class="description last">The selector for the target element. If null, uses the app's default target.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
+        </li>
+    </ul>
 
 
 
@@ -417,7 +308,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="dist_bundle.js.html">dist/bundle.js</a>, <a href="dist_bundle.js.html#line158">line 158</a>
+        <a href="lib_runtime_AvenxApp.js.html">lib/runtime/AvenxApp.js</a>, <a href="lib_runtime_AvenxApp.js.html#line37">line 37</a>
     </li></ul></dd>
     
 
@@ -433,151 +324,28 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         
             
+<h4 class="name" id="components"><span class="type-signature"></span>components<span class="type-signature"> :Map.&lt;string, function()></span></h4>
 
-    
-
-    
-    <h4 class="name" id="mount"><span class="type-signature"></span>mount<span class="signature">(name, targetSelector<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
-    
-
-    
 
 
 
 <div class="description">
-    Mounts a registered component to a target element.
+    <p>A map of registered component names to their respective class constructors.</p>
 </div>
 
 
 
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Attributes</th>
-        
-
-        
-        <th>Default</th>
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
+    <h5>Type:</h5>
+    <ul>
+        <li>
             
-                <td class="name"><code>name</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
+<span class="param-type">Map.&lt;string, function()></span>
 
 
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                </td>
-            
-
-            <td class="description last">The name of the registered component.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>targetSelector</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-|
-
-<span class="param-type">null</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
-
-            <td class="description last">The selector for the target element. If null, uses the app's default target.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
+        </li>
+    </ul>
 
 
 
@@ -612,7 +380,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_runtime.js.html">src/runtime.js</a>, <a href="src_runtime.js.html#line158">line 158</a>
+        <a href="lib_runtime_AvenxApp.js.html">lib/runtime/AvenxApp.js</a>, <a href="lib_runtime_AvenxApp.js.html#line32">line 32</a>
     </li></ul></dd>
     
 
@@ -628,1075 +396,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         
-            
-
-    
-
-    
-    <h4 class="name" id="register"><span class="type-signature"></span>register<span class="signature">(name, compClass)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Registers a component class with a given name.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>name</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The name of the component.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>compClass</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="AvenxComponent.html">AvenxComponent</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The component class (constructor) to register.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="dist_bundle.js.html">dist/bundle.js</a>, <a href="dist_bundle.js.html#line124">line 124</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="register"><span class="type-signature"></span>register<span class="signature">(name, compClass)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Registers a component class with a given name.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>name</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The name of the component.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>compClass</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="AvenxComponent.html">AvenxComponent</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The component class (constructor) to register.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_runtime.js.html">src/runtime.js</a>, <a href="src_runtime.js.html#line124">line 124</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="registerBridge"><span class="type-signature"></span>registerBridge<span class="signature">(name, initialState)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Registers a shared reactive state (bridge).
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>name</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The name of the bridge.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>initialState</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The initial state of the bridge.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="dist_bundle.js.html">dist/bundle.js</a>, <a href="dist_bundle.js.html#line131">line 131</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="registerBridge"><span class="type-signature"></span>registerBridge<span class="signature">(name, initialState)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Registers a shared reactive state (bridge).
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>name</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The name of the bridge.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>initialState</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The initial state of the bridge.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_runtime.js.html">src/runtime.js</a>, <a href="src_runtime.js.html#line131">line 131</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="updateAll"><span class="type-signature"></span>updateAll<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Triggers an update (re-render) for all active component instances.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="dist_bundle.js.html">dist/bundle.js</a>, <a href="dist_bundle.js.html#line149">line 149</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="updateAll"><span class="type-signature"></span>updateAll<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Triggers an update (re-render) for all active component instances.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_runtime.js.html">src/runtime.js</a>, <a href="src_runtime.js.html#line149">line 149</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-    
-
-    
-
-    
-</article>
-
-</section>
-
-
-
-
-
-
-
-<section>
-
-<header>
-    
-        <h2><span class="attribs"><span class="type-signature"></span></span>AvenxApp<span class="signature">(config)</span><span class="type-signature"></span></h2>
-        
-            <div class="class-description">Main application class for Avenx.Manages component registration, bridges, and application mounting.</div>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-
-    
-    <h2>Constructor</h2>
-    
-
-    
-    <h4 class="name" id="AvenxApp"><span class="type-signature"></span>new AvenxApp<span class="signature">(config)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Creates an instance of AvenxApp.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>config</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The application configuration.
-                <h6>Properties</h6>
-                
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>target</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The selector for the main application target element.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-            </td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_runtime.js.html">src/runtime.js</a>, <a href="src_runtime.js.html#line106">line 106</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    </div>
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Classes</h3>
-
-        <dl>
-            <dt><a href="AvenxApp.html">AvenxApp</a></dt>
-            <dd></dd>
-        </dl>
-    
-
-    
-
-    
-
-    
-
     
 
     
@@ -1716,7 +416,8 @@
 
 
 <div class="description">
-    Mounts a registered component to a target element.
+    <p>Mounts a registered component to a specific target element.
+Creates a new instance of the component class and provides it with access to all registered bridges.</p>
 </div>
 
 
@@ -1784,7 +485,7 @@
                 </td>
             
 
-            <td class="description last">The name of the registered component.</td>
+            <td class="description last"><p>The name of the registered component to mount.</p></td>
         </tr>
 
     
@@ -1826,7 +527,8 @@
                 </td>
             
 
-            <td class="description last">The selector for the target element. If null, uses the app's default target.</td>
+            <td class="description last"><p>The CSS selector for the target mount point.
+If null, the application's default target is used.</p></td>
         </tr>
 
     
@@ -1867,202 +569,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="dist_bundle.js.html">dist/bundle.js</a>, <a href="dist_bundle.js.html#line158">line 158</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="mount"><span class="type-signature"></span>mount<span class="signature">(name, targetSelector<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Mounts a registered component to a target element.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Attributes</th>
-        
-
-        
-        <th>Default</th>
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>name</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                </td>
-            
-
-            <td class="description last">The name of the registered component.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>targetSelector</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-|
-
-<span class="param-type">null</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    null
-                
-                </td>
-            
-
-            <td class="description last">The selector for the target element. If null, uses the app's default target.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_runtime.js.html">src/runtime.js</a>, <a href="src_runtime.js.html#line158">line 158</a>
+        <a href="lib_runtime_AvenxApp.js.html">lib/runtime/AvenxApp.js</a>, <a href="lib_runtime_AvenxApp.js.html#line100">line 100</a>
     </li></ul></dd>
     
 
@@ -2106,7 +613,7 @@
 
 
 <div class="description">
-    Registers a component class with a given name.
+    <p>Registers a component class under a specific name, making it available for mounting.</p>
 </div>
 
 
@@ -2158,7 +665,7 @@
 
             
 
-            <td class="description last">The name of the component.</td>
+            <td class="description last"><p>The unique name for the component.</p></td>
         </tr>
 
     
@@ -2171,7 +678,7 @@
             <td class="type">
             
                 
-<span class="param-type"><a href="AvenxComponent.html">AvenxComponent</a></span>
+<span class="param-type">function</span>
 
 
             
@@ -2181,7 +688,7 @@
 
             
 
-            <td class="description last">The component class (constructor) to register.</td>
+            <td class="description last"><p>The component class constructor.</p></td>
         </tr>
 
     
@@ -2222,7 +729,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="dist_bundle.js.html">dist/bundle.js</a>, <a href="dist_bundle.js.html#line124">line 124</a>
+        <a href="lib_runtime_AvenxApp.js.html">lib/runtime/AvenxApp.js</a>, <a href="lib_runtime_AvenxApp.js.html#line45">line 45</a>
     </li></ul></dd>
     
 
@@ -2258,7 +765,7 @@
     
 
     
-    <h4 class="name" id="register"><span class="type-signature"></span>register<span class="signature">(name, compClass)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="registerBridge"><span class="type-signature"></span>registerBridge<span class="signature">(name, bridgeData)</span><span class="type-signature"></span></h4>
     
 
     
@@ -2266,7 +773,8 @@
 
 
 <div class="description">
-    Registers a component class with a given name.
+    <p>Registers a shared reactive state object or class (bridge).
+Changes to a bridge's state will automatically trigger a re-render for all active components.</p>
 </div>
 
 
@@ -2318,180 +826,23 @@
 
             
 
-            <td class="description last">The name of the component.</td>
+            <td class="description last"><p>The unique name for the bridge.</p></td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>compClass</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="AvenxComponent.html">AvenxComponent</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The component class (constructor) to register.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_runtime.js.html">src/runtime.js</a>, <a href="src_runtime.js.html#line124">line 124</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="registerBridge"><span class="type-signature"></span>registerBridge<span class="signature">(name, initialState)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Registers a shared reactive state (bridge).
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>name</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The name of the bridge.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>initialState</code></td>
+                <td class="name"><code>bridgeData</code></td>
             
 
             <td class="type">
             
                 
 <span class="param-type">Object</span>
+|
+
+<span class="param-type">function</span>
 
 
             
@@ -2501,7 +852,7 @@
 
             
 
-            <td class="description last">The initial state of the bridge.</td>
+            <td class="description last"><p>The initial state data or a Bridge class.</p></td>
         </tr>
 
     
@@ -2542,167 +893,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="dist_bundle.js.html">dist/bundle.js</a>, <a href="dist_bundle.js.html#line131">line 131</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="registerBridge"><span class="type-signature"></span>registerBridge<span class="signature">(name, initialState)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Registers a shared reactive state (bridge).
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>name</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The name of the bridge.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>initialState</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The initial state of the bridge.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_runtime.js.html">src/runtime.js</a>, <a href="src_runtime.js.html#line131">line 131</a>
+        <a href="lib_runtime_AvenxApp.js.html">lib/runtime/AvenxApp.js</a>, <a href="lib_runtime_AvenxApp.js.html#line55">line 55</a>
     </li></ul></dd>
     
 
@@ -2746,7 +937,7 @@
 
 
 <div class="description">
-    Triggers an update (re-render) for all active component instances.
+    <p>Triggers an update (re-render) for every active (mounted) component instance in the application.</p>
 </div>
 
 
@@ -2790,95 +981,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="dist_bundle.js.html">dist/bundle.js</a>, <a href="dist_bundle.js.html#line149">line 149</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="updateAll"><span class="type-signature"></span>updateAll<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Triggers an update (re-render) for all active component instances.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_runtime.js.html">src/runtime.js</a>, <a href="src_runtime.js.html#line149">line 149</a>
+        <a href="lib_runtime_AvenxApp.js.html">lib/runtime/AvenxApp.js</a>, <a href="lib_runtime_AvenxApp.js.html#line89">line 89</a>
     </li></ul></dd>
     
 
@@ -2924,13 +1027,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="AvenxApp.html">AvenxApp</a></li><li><a href="AvenxComponent.html">AvenxComponent</a></li></ul><h3>Global</h3><ul><li><a href="global.html#build">build</a></li><li><a href="global.html#parseAXT">parseAXT</a></li><li><a href="global.html#processCSS">processCSS</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="AvenxApp.html">AvenxApp</a></li><li><a href="AvenxBridge.html">AvenxBridge</a></li><li><a href="AvenxCLI.html">AvenxCLI</a></li><li><a href="AvenxCompiler.html">AvenxCompiler</a></li><li><a href="AvenxComponent.html">AvenxComponent</a></li><li><a href="ComponentParser.html">ComponentParser</a></li><li><a href="StyleProcessor.html">StyleProcessor</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Mon May 11 2026 09:02:52 GMT+0200 (Mitteleuropäische Sommerzeit)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Wed Jun 10 2026 10:16:00 GMT+0200 (Mitteleuropäische Sommerzeit)
 </footer>
 
 <script> prettyPrint(); </script>

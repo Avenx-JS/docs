@@ -28,9 +28,11 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>AvenxComponent<span class="signature">(initialState<span class="signature-attributes">opt</span>, bridges<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>AvenxComponent<span class="signature">(initialState<span class="signature-attributes">opt</span>, computed<span class="signature-attributes">opt</span>, bridges<span class="signature-attributes">opt</span>, template<span class="signature-attributes">opt</span>, methods<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h2>
         
-            <div class="class-description">Base class for Avenx components.Handles reactivity, rendering, and event binding.</div>
+            <div class="class-description"><p>AvenxComponent is the base class for all Avenx components.
+It provides core functionality for reactivity, template rendering, and event binding.
+It uses a Proxy-based state management system to automatically trigger re-renders on state changes.</p></div>
         
     
 </header>
@@ -45,7 +47,7 @@
     
 
     
-    <h4 class="name" id="AvenxComponent"><span class="type-signature"></span>new AvenxComponent<span class="signature">(initialState<span class="signature-attributes">opt</span>, bridges<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="AvenxComponent"><span class="type-signature"></span>new AvenxComponent<span class="signature">(initialState<span class="signature-attributes">opt</span>, computed<span class="signature-attributes">opt</span>, bridges<span class="signature-attributes">opt</span>, template<span class="signature-attributes">opt</span>, methods<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
     
 
     
@@ -53,7 +55,7 @@
 
 
 <div class="description">
-    Creates an instance of AvenxComponent.
+    <p>Creates an instance of AvenxComponent.</p>
 </div>
 
 
@@ -125,7 +127,46 @@
                 </td>
             
 
-            <td class="description last">The initial local state of the component.</td>
+            <td class="description last"><p>The initial local state of the component.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>computed</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    {}
+                
+                </td>
+            
+
+            <td class="description last"><p>Computed property definitions.</p></td>
         </tr>
 
     
@@ -164,7 +205,85 @@
                 </td>
             
 
-            <td class="description last">Shared reactive states (bridges) accessible to the component.</td>
+            <td class="description last"><p>Shared reactive states (bridges) accessible to the component.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>template</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    ''
+                
+                </td>
+            
+
+            <td class="description last"><p>The HTML template for the component.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>methods</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    {}
+                
+                </td>
+            
+
+            <td class="description last"><p>A map of methods available to the component's context.</p></td>
         </tr>
 
     
@@ -205,7 +324,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="dist_bundle.js.html">dist/bundle.js</a>, <a href="dist_bundle.js.html#line6">line 6</a>
+        <a href="lib_runtime_AvenxComponent.js.html">lib/runtime/AvenxComponent.js</a>, <a href="lib_runtime_AvenxComponent.js.html#line6">line 6</a>
     </li></ul></dd>
     
 
@@ -258,83 +377,32 @@
     
 
     
-
-    
-        <h3 class="subsection-title">Methods</h3>
+        <h3 class="subsection-title">Members</h3>
 
         
             
+<h4 class="name" id="state"><span class="type-signature"></span>state<span class="type-signature"> :Proxy</span></h4>
 
-    
-
-    
-    <h4 class="name" id="mount"><span class="type-signature"></span>mount<span class="signature">(target)</span><span class="type-signature"></span></h4>
-    
-
-    
 
 
 
 <div class="description">
-    Mounts the component to a target DOM element.
+    <p>The reactive state of the component.
+Changes to this object trigger an automatic re-render via the Proxy's set trap.
+Computed properties are evaluated on access.</p>
 </div>
 
 
 
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
+    <h5>Type:</h5>
+    <ul>
+        <li>
             
-                <td class="name"><code>target</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">HTMLElement</span>
+<span class="param-type">Proxy</span>
 
 
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The DOM element where the component should be mounted.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
+        </li>
+    </ul>
 
 
 
@@ -369,7 +437,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="dist_bundle.js.html">dist/bundle.js</a>, <a href="dist_bundle.js.html#line96">line 96</a>
+        <a href="lib_runtime_AvenxComponent.js.html">lib/runtime/AvenxComponent.js</a>, <a href="lib_runtime_AvenxComponent.js.html#line62">line 62</a>
     </li></ul></dd>
     
 
@@ -385,802 +453,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         
-            
-
-    
-
-    
-    <h4 class="name" id="mount"><span class="type-signature"></span>mount<span class="signature">(target)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Mounts the component to a target DOM element.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>target</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">HTMLElement</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The DOM element where the component should be mounted.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_runtime.js.html">src/runtime.js</a>, <a href="src_runtime.js.html#line96">line 96</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="render"><span class="type-signature"></span>render<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Renders the component's template by interpolating expressions.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="dist_bundle.js.html">dist/bundle.js</a>, <a href="dist_bundle.js.html#line51">line 51</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    The rendered HTML string.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">string</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="render"><span class="type-signature"></span>render<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Renders the component's template by interpolating expressions.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_runtime.js.html">src/runtime.js</a>, <a href="src_runtime.js.html#line51">line 51</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    The rendered HTML string.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">string</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="update"><span class="type-signature"></span>update<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Updates the component's DOM element with the rendered template and re-binds events.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="dist_bundle.js.html">dist/bundle.js</a>, <a href="dist_bundle.js.html#line68">line 68</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="update"><span class="type-signature"></span>update<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Updates the component's DOM element with the rendered template and re-binds events.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_runtime.js.html">src/runtime.js</a>, <a href="src_runtime.js.html#line68">line 68</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-    
-
-    
-
-    
-</article>
-
-</section>
-
-
-
-
-
-
-
-<section>
-
-<header>
-    
-        <h2><span class="attribs"><span class="type-signature"></span></span>AvenxComponent<span class="signature">(initialState<span class="signature-attributes">opt</span>, bridges<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h2>
-        
-            <div class="class-description">Base class for Avenx components.Handles reactivity, rendering, and event binding.</div>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-
-    
-    <h2>Constructor</h2>
-    
-
-    
-    <h4 class="name" id="AvenxComponent"><span class="type-signature"></span>new AvenxComponent<span class="signature">(initialState<span class="signature-attributes">opt</span>, bridges<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Creates an instance of AvenxComponent.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-        <th>Attributes</th>
-        
-
-        
-        <th>Default</th>
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>initialState</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    {}
-                
-                </td>
-            
-
-            <td class="description last">The initial local state of the component.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>bridges</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-                <td class="attributes">
-                
-                    &lt;optional><br>
-                
-
-                
-
-                
-                </td>
-            
-
-            
-                <td class="default">
-                
-                    {}
-                
-                </td>
-            
-
-            <td class="description last">Shared reactive states (bridges) accessible to the component.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_runtime.js.html">src/runtime.js</a>, <a href="src_runtime.js.html#line6">line 6</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    </div>
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Classes</h3>
-
-        <dl>
-            <dt><a href="AvenxComponent.html">AvenxComponent</a></dt>
-            <dd></dd>
-        </dl>
-    
-
-    
-
-    
-
-    
-
     
 
     
@@ -1200,7 +473,7 @@
 
 
 <div class="description">
-    Mounts the component to a target DOM element.
+    <p>Mounts the component to a specific target DOM element and triggers the initial render.</p>
 </div>
 
 
@@ -1252,7 +525,7 @@
 
             
 
-            <td class="description last">The DOM element where the component should be mounted.</td>
+            <td class="description last"><p>The DOM element where the component should be mounted.</p></td>
         </tr>
 
     
@@ -1293,144 +566,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="dist_bundle.js.html">dist/bundle.js</a>, <a href="dist_bundle.js.html#line96">line 96</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="mount"><span class="type-signature"></span>mount<span class="signature">(target)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Mounts the component to a target DOM element.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>target</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">HTMLElement</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The DOM element where the component should be mounted.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_runtime.js.html">src/runtime.js</a>, <a href="src_runtime.js.html#line96">line 96</a>
+        <a href="lib_runtime_AvenxComponent.js.html">lib/runtime/AvenxComponent.js</a>, <a href="lib_runtime_AvenxComponent.js.html#line168">line 168</a>
     </li></ul></dd>
     
 
@@ -1474,7 +610,7 @@
 
 
 <div class="description">
-    Renders the component's template by interpolating expressions.
+    <p>Renders the component's template by interpolating expressions (e.g., {{ expression }}).</p>
 </div>
 
 
@@ -1518,7 +654,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="dist_bundle.js.html">dist/bundle.js</a>, <a href="dist_bundle.js.html#line51">line 51</a>
+        <a href="lib_runtime_AvenxComponent.js.html">lib/runtime/AvenxComponent.js</a>, <a href="lib_runtime_AvenxComponent.js.html#line124">line 124</a>
     </li></ul></dd>
     
 
@@ -1547,117 +683,7 @@
 
         
 <div class="param-desc">
-    The rendered HTML string.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">string</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="render"><span class="type-signature"></span>render<span class="signature">()</span><span class="type-signature"> &rarr; {string}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Renders the component's template by interpolating expressions.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_runtime.js.html">src/runtime.js</a>, <a href="src_runtime.js.html#line51">line 51</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    The rendered HTML string.
+    <p>The interpolated HTML string.</p>
 </div>
 
 
@@ -1694,7 +720,7 @@
 
 
 <div class="description">
-    Updates the component's DOM element with the rendered template and re-binds events.
+    <p>Updates the component's DOM element by re-rendering the template and re-binding all events.</p>
 </div>
 
 
@@ -1738,95 +764,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="dist_bundle.js.html">dist/bundle.js</a>, <a href="dist_bundle.js.html#line68">line 68</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="update"><span class="type-signature"></span>update<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Updates the component's DOM element with the rendered template and re-binds events.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_runtime.js.html">src/runtime.js</a>, <a href="src_runtime.js.html#line68">line 68</a>
+        <a href="lib_runtime_AvenxComponent.js.html">lib/runtime/AvenxComponent.js</a>, <a href="lib_runtime_AvenxComponent.js.html#line140">line 140</a>
     </li></ul></dd>
     
 
@@ -1872,13 +810,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="AvenxApp.html">AvenxApp</a></li><li><a href="AvenxComponent.html">AvenxComponent</a></li></ul><h3>Global</h3><ul><li><a href="global.html#build">build</a></li><li><a href="global.html#parseAXT">parseAXT</a></li><li><a href="global.html#processCSS">processCSS</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="AvenxApp.html">AvenxApp</a></li><li><a href="AvenxBridge.html">AvenxBridge</a></li><li><a href="AvenxCLI.html">AvenxCLI</a></li><li><a href="AvenxCompiler.html">AvenxCompiler</a></li><li><a href="AvenxComponent.html">AvenxComponent</a></li><li><a href="ComponentParser.html">ComponentParser</a></li><li><a href="StyleProcessor.html">StyleProcessor</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Mon May 11 2026 09:02:52 GMT+0200 (Mitteleuropäische Sommerzeit)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Wed Jun 10 2026 10:16:00 GMT+0200 (Mitteleuropäische Sommerzeit)
 </footer>
 
 <script> prettyPrint(); </script>
