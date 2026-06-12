@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: AvenxBridge</title>
+    <title>JSDoc: Class: Sanitizer</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: AvenxBridge</h1>
+    <h1 class="page-title">Class: Sanitizer</h1>
 
     
 
@@ -28,10 +28,10 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>AvenxBridge<span class="signature">()</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>Sanitizer<span class="signature">()</span><span class="type-signature"></span></h2>
         
-            <div class="class-description"><p>Base class for Avenx Bridges.
-Bridges are used to share state and logic across components.</p></div>
+            <div class="class-description"><p>Provides sanitization for values used in templates.
+Currently a placeholder for more advanced sanitization logic.</p></div>
         
     
 </header>
@@ -46,7 +46,7 @@ Bridges are used to share state and logic across components.</p></div>
     
 
     
-    <h4 class="name" id="AvenxBridge"><span class="type-signature"></span>new AvenxBridge<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="Sanitizer"><span class="type-signature"></span>new Sanitizer<span class="signature">()</span><span class="type-signature"></span></h4>
     
 
     
@@ -94,7 +94,7 @@ Bridges are used to share state and logic across components.</p></div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_core_runtime_AvenxBridge.js.html">lib/core/runtime/AvenxBridge.js</a>, <a href="lib_core_runtime_AvenxBridge.js.html#line5">line 5</a>
+        <a href="lib_core_security_sanitize.js.html">lib/core/security/sanitize.js</a>, <a href="lib_core_security_sanitize.js.html#line5">line 5</a>
     </li></ul></dd>
     
 
@@ -132,12 +132,98 @@ Bridges are used to share state and logic across components.</p></div>
     
 
     
-        <h3 class="subsection-title">Classes</h3>
 
-        <dl>
-            <dt><a href="AvenxBridge.html">AvenxBridge</a></dt>
-            <dd></dd>
-        </dl>
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="sanitize"><span class="type-signature"></span>sanitize<span class="signature">(value)</span><span class="type-signature"> &rarr; {string}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Sanitizes a value.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">any</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The value to sanitize.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
     
 
     
@@ -148,6 +234,76 @@ Bridges are used to share state and logic across components.</p></div>
 
     
 
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lib_core_security_sanitize.js.html">lib/core/security/sanitize.js</a>, <a href="lib_core_security_sanitize.js.html#line11">line 11</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>The sanitized string.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
     
 
     

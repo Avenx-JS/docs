@@ -99,7 +99,7 @@ and extracting CSS rules into a global stylesheet.</p></div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_core_StyleProcessor.js.html">lib/core/StyleProcessor.js</a>, <a href="lib_core_StyleProcessor.js.html#line8">line 8</a>
+        <a href="lib_compiler_StyleProcessor.js.html">lib/compiler/StyleProcessor.js</a>, <a href="lib_compiler_StyleProcessor.js.html#line8">line 8</a>
     </li></ul></dd>
     
 
@@ -203,7 +203,7 @@ and extracting CSS rules into a global stylesheet.</p></div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_core_StyleProcessor.js.html">lib/core/StyleProcessor.js</a>, <a href="lib_core_StyleProcessor.js.html#line37">line 37</a>
+        <a href="lib_compiler_StyleProcessor.js.html">lib/compiler/StyleProcessor.js</a>, <a href="lib_compiler_StyleProcessor.js.html#line37">line 37</a>
     </li></ul></dd>
     
 
@@ -275,7 +275,7 @@ and extracting CSS rules into a global stylesheet.</p></div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_core_StyleProcessor.js.html">lib/core/StyleProcessor.js</a>, <a href="lib_core_StyleProcessor.js.html#line31">line 31</a>
+        <a href="lib_compiler_StyleProcessor.js.html">lib/compiler/StyleProcessor.js</a>, <a href="lib_compiler_StyleProcessor.js.html#line31">line 31</a>
     </li></ul></dd>
     
 
@@ -347,7 +347,7 @@ and extracting CSS rules into a global stylesheet.</p></div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_core_StyleProcessor.js.html">lib/core/StyleProcessor.js</a>, <a href="lib_core_StyleProcessor.js.html#line43">line 43</a>
+        <a href="lib_compiler_StyleProcessor.js.html">lib/compiler/StyleProcessor.js</a>, <a href="lib_compiler_StyleProcessor.js.html#line43">line 43</a>
     </li></ul></dd>
     
 
@@ -419,7 +419,7 @@ and extracting CSS rules into a global stylesheet.</p></div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_core_StyleProcessor.js.html">lib/core/StyleProcessor.js</a>, <a href="lib_core_StyleProcessor.js.html#line49">line 49</a>
+        <a href="lib_compiler_StyleProcessor.js.html">lib/compiler/StyleProcessor.js</a>, <a href="lib_compiler_StyleProcessor.js.html#line49">line 49</a>
     </li></ul></dd>
     
 
@@ -548,7 +548,7 @@ and extracting CSS rules into a global stylesheet.</p></div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_core_StyleProcessor.js.html">lib/core/StyleProcessor.js</a>, <a href="lib_core_StyleProcessor.js.html#line67">line 67</a>
+        <a href="lib_compiler_StyleProcessor.js.html">lib/compiler/StyleProcessor.js</a>, <a href="lib_compiler_StyleProcessor.js.html#line67">line 67</a>
     </li></ul></dd>
     
 
@@ -708,7 +708,7 @@ and extracting CSS rules into a global stylesheet.</p></div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_core_StyleProcessor.js.html">lib/core/StyleProcessor.js</a>, <a href="lib_core_StyleProcessor.js.html#line59">line 59</a>
+        <a href="lib_compiler_StyleProcessor.js.html">lib/compiler/StyleProcessor.js</a>, <a href="lib_compiler_StyleProcessor.js.html#line59">line 59</a>
     </li></ul></dd>
     
 
@@ -733,6 +733,165 @@ and extracting CSS rules into a global stylesheet.</p></div>
 
 
 
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="applyVariables"><span class="type-signature"></span>applyVariables<span class="signature">(cssContent)</span><span class="type-signature"> &rarr; {string}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Replaces CSS variables (e.g., @primary) with their values.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>cssContent</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The CSS content to process.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lib_compiler_StyleProcessor.js.html">lib/compiler/StyleProcessor.js</a>, <a href="lib_compiler_StyleProcessor.js.html#line198">line 198</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>The CSS content with variables replaced.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+    </dd>
+</dl>
+
+    
 
 
 
@@ -796,7 +955,7 @@ and extracting CSS rules into a global stylesheet.</p></div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_core_StyleProcessor.js.html">lib/core/StyleProcessor.js</a>, <a href="lib_core_StyleProcessor.js.html#line75">line 75</a>
+        <a href="lib_compiler_StyleProcessor.js.html">lib/compiler/StyleProcessor.js</a>, <a href="lib_compiler_StyleProcessor.js.html#line75">line 75</a>
     </li></ul></dd>
     
 
@@ -854,6 +1013,188 @@ and extracting CSS rules into a global stylesheet.</p></div>
     
 
     
+    <h4 class="name" id="getHash"><span class="type-signature"></span>getHash<span class="signature">(cssContent, componentName)</span><span class="type-signature"> &rarr; {string}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Generates a unique hash for a CSS block.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>cssContent</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The CSS content.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>componentName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The name of the component.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lib_compiler_StyleProcessor.js.html">lib/compiler/StyleProcessor.js</a>, <a href="lib_compiler_StyleProcessor.js.html#line218">line 218</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>The generated hash.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
     <h4 class="name" id="process"><span class="type-signature"></span>process<span class="signature">(html, desBlocks<span class="signature-attributes">opt</span>, componentName<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {string}</span></h4>
     
 
@@ -862,9 +1203,8 @@ and extracting CSS rules into a global stylesheet.</p></div>
 
 
 <div class="description">
-    <p>Processes the CSS within an HTML template. It identifies &lt;@css&gt; tags
-and @css attributes, scopes the rules with a unique hash, replaces variables,
-and updates the HTML to include the hash class.</p>
+    <p>Processes the CSS within an HTML template. It identifies @css attributes,
+scopes the rules with a unique hash, replaces variables, and updates the HTML.</p>
 </div>
 
 
@@ -971,7 +1311,7 @@ and updates the HTML to include the hash class.</p>
                 </td>
             
 
-            <td class="description last"><p>Pre-defined style blocks from an .axd file.</p></td>
+            <td class="description last"><p>Pre-defined style blocks from a .component.css file.</p></td>
         </tr>
 
     
@@ -1051,7 +1391,7 @@ and updates the HTML to include the hash class.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_core_StyleProcessor.js.html">lib/core/StyleProcessor.js</a>, <a href="lib_core_StyleProcessor.js.html#line98">line 98</a>
+        <a href="lib_compiler_StyleProcessor.js.html">lib/compiler/StyleProcessor.js</a>, <a href="lib_compiler_StyleProcessor.js.html#line97">line 97</a>
     </li></ul></dd>
     
 
@@ -1161,7 +1501,7 @@ and updates the HTML to include the hash class.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_core_StyleProcessor.js.html">lib/core/StyleProcessor.js</a>, <a href="lib_core_StyleProcessor.js.html#line26">line 26</a>
+        <a href="lib_compiler_StyleProcessor.js.html">lib/compiler/StyleProcessor.js</a>, <a href="lib_compiler_StyleProcessor.js.html#line26">line 26</a>
     </li></ul></dd>
     
 
@@ -1207,13 +1547,13 @@ and updates the HTML to include the hash class.</p>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="AvenxApp.html">AvenxApp</a></li><li><a href="AvenxBridge.html">AvenxBridge</a></li><li><a href="AvenxCLI.html">AvenxCLI</a></li><li><a href="AvenxCompiler.html">AvenxCompiler</a></li><li><a href="AvenxComponent.html">AvenxComponent</a></li><li><a href="ComponentParser.html">ComponentParser</a></li><li><a href="StyleProcessor.html">StyleProcessor</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-lib_core_index.html">lib/core/index</a></li></ul><h3>Classes</h3><ul><li><a href="AvenxApp.html">AvenxApp</a></li><li><a href="AvenxBridge.html">AvenxBridge</a></li><li><a href="AvenxCLI.html">AvenxCLI</a></li><li><a href="AvenxCompiler.html">AvenxCompiler</a></li><li><a href="AvenxComponent.html">AvenxComponent</a></li><li><a href="ComponentParser.html">ComponentParser</a></li><li><a href="ComputedRegistry.html">ComputedRegistry</a></li><li><a href="DomPatcher.html">DomPatcher</a></li><li><a href="DynamicEvaluator.html">DynamicEvaluator</a></li><li><a href="EventBinder.html">EventBinder</a></li><li><a href="EventExecutor.html">EventExecutor</a></li><li><a href="ExpressionParser.html">ExpressionParser</a></li><li><a href="HtmlDiff.html">HtmlDiff</a></li><li><a href="HtmlEscaper.html">HtmlEscaper</a></li><li><a href="LifecycleManager.html">LifecycleManager</a></li><li><a href="ProxyHandlerFactory.html">ProxyHandlerFactory</a></li><li><a href="Sanitizer.html">Sanitizer</a></li><li><a href="StateFactory.html">StateFactory</a></li><li><a href="StyleProcessor.html">StyleProcessor</a></li><li><a href="TemplateRenderer.html">TemplateRenderer</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Wed Jun 10 2026 12:27:06 GMT+0200 (Mitteleuropäische Sommerzeit)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Thu Jun 11 2026 13:17:17 GMT+0200 (Mitteleuropäische Sommerzeit)
 </footer>
 
 <script> prettyPrint(); </script>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: lib/core/StyleProcessor.js</title>
+    <title>JSDoc: Source: lib/compiler/StyleProcessor.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: lib/core/StyleProcessor.js</h1>
+    <h1 class="page-title">Source: lib/compiler/StyleProcessor.js</h1>
 
     
 
@@ -115,11 +115,10 @@ class StyleProcessor {
     }
 
     /**
-     * Processes the CSS within an HTML template. It identifies &lt;@css> tags
-     * and @css attributes, scopes the rules with a unique hash, replaces variables,
-     * and updates the HTML to include the hash class.
+     * Processes the CSS within an HTML template. It identifies @css attributes,
+     * scopes the rules with a unique hash, replaces variables, and updates the HTML.
      * @param {string} html - The HTML template.
-     * @param {Object} [desBlocks={}] - Pre-defined style blocks from an .axd file.
+     * @param {Object} [desBlocks={}] - Pre-defined style blocks from a .component.css file.
      * @param {string} [componentName=""] - The name of the component for hash generation.
      * @returns {string} The modified HTML.
      */
@@ -180,8 +179,9 @@ class StyleProcessor {
                     const tagContent = prevTagMatch[1] + prevTagMatch[2];
                     const updatedTag = this.mergeClassIntoTag(tagContent, hash);
                     
-                    modifiedHtml = modifiedHtml.substring(0, tagStart + 1) + 
-                                   updatedTag + 
+                    modifiedHtml = modifiedHtml.substring(0, tagStart + 1) +
+                                   updatedTag +
+                                   '>' +
                                    modifiedHtml.substring(tagStart + prevTagMatch[0].length, matchIndex) +
                                    modifiedHtml.substring(matchIndex + fullMatch.length);
                 } else {
@@ -196,6 +196,9 @@ class StyleProcessor {
 
     /**
      * Merges a CSS class hash into an existing tag string, handling existing class attributes.
+     * @param {string} tagContent - The content of the tag (e.g., "div id='foo'").
+     * @param {string} hash - The CSS class hash to merge.
+     * @returns {string} The updated tag content.
      * @private
      */
     mergeClassIntoTag(tagContent, hash) {
@@ -215,6 +218,11 @@ class StyleProcessor {
         }
     }
 
+    /**
+     * Replaces CSS variables (e.g., @primary) with their values.
+     * @param {string} cssContent - The CSS content to process.
+     * @returns {string} The CSS content with variables replaced.
+     */
     applyVariables(cssContent) {
         let content = cssContent;
         // Sort variables by length descending to prevent partial replacement (e.g., @primary vs @primary-hover)
@@ -229,6 +237,12 @@ class StyleProcessor {
         return content;
     }
 
+    /**
+     * Generates a unique hash for a CSS block.
+     * @param {string} cssContent - The CSS content.
+     * @param {string} componentName - The name of the component.
+     * @returns {string} The generated hash.
+     */
     getHash(cssContent, componentName) {
         return "avenx-" + crypto.createHash('md5').update(cssContent + componentName).digest('hex').substring(0, 8);
     }
@@ -236,6 +250,8 @@ class StyleProcessor {
     /**
      * Extracts CSS rules from a content string, scopes them using the provided hash,
      * and appends them to the global stylesheet.
+     * @param {string} cssContent - The CSS content to extract rules from.
+     * @param {string} hash - The hash to use for scoping.
      * @private
      */
     extractRules(cssContent, hash) {
@@ -303,13 +319,13 @@ module.exports = StyleProcessor;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="AvenxApp.html">AvenxApp</a></li><li><a href="AvenxBridge.html">AvenxBridge</a></li><li><a href="AvenxCLI.html">AvenxCLI</a></li><li><a href="AvenxCompiler.html">AvenxCompiler</a></li><li><a href="AvenxComponent.html">AvenxComponent</a></li><li><a href="ComponentParser.html">ComponentParser</a></li><li><a href="StyleProcessor.html">StyleProcessor</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-lib_core_index.html">lib/core/index</a></li></ul><h3>Classes</h3><ul><li><a href="AvenxApp.html">AvenxApp</a></li><li><a href="AvenxBridge.html">AvenxBridge</a></li><li><a href="AvenxCLI.html">AvenxCLI</a></li><li><a href="AvenxCompiler.html">AvenxCompiler</a></li><li><a href="AvenxComponent.html">AvenxComponent</a></li><li><a href="ComponentParser.html">ComponentParser</a></li><li><a href="ComputedRegistry.html">ComputedRegistry</a></li><li><a href="DomPatcher.html">DomPatcher</a></li><li><a href="DynamicEvaluator.html">DynamicEvaluator</a></li><li><a href="EventBinder.html">EventBinder</a></li><li><a href="EventExecutor.html">EventExecutor</a></li><li><a href="ExpressionParser.html">ExpressionParser</a></li><li><a href="HtmlDiff.html">HtmlDiff</a></li><li><a href="HtmlEscaper.html">HtmlEscaper</a></li><li><a href="LifecycleManager.html">LifecycleManager</a></li><li><a href="ProxyHandlerFactory.html">ProxyHandlerFactory</a></li><li><a href="Sanitizer.html">Sanitizer</a></li><li><a href="StateFactory.html">StateFactory</a></li><li><a href="StyleProcessor.html">StyleProcessor</a></li><li><a href="TemplateRenderer.html">TemplateRenderer</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Wed Jun 10 2026 12:27:06 GMT+0200 (Mitteleuropäische Sommerzeit)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Thu Jun 11 2026 13:17:17 GMT+0200 (Mitteleuropäische Sommerzeit)
 </footer>
 
 <script> prettyPrint(); </script>

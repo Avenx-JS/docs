@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: ComponentParser</title>
+    <title>JSDoc: Class: ExpressionParser</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: ComponentParser</h1>
+    <h1 class="page-title">Class: ExpressionParser</h1>
 
     
 
@@ -28,11 +28,10 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>ComponentParser<span class="signature">(styleProcessor)</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>ExpressionParser<span class="signature">()</span><span class="type-signature"></span></h2>
         
-            <div class="class-description"><p>ComponentParser handles the parsing of Avenx component files (.js and .css).
-It extracts component state, computed properties, methods, and templates,
-and coordinates with the StyleProcessor to handle styles.</p></div>
+            <div class="class-description"><p>ExpressionParser is responsible for extracting state, computed properties,
+and methods from Avenx component source code.</p></div>
         
     
 </header>
@@ -47,7 +46,7 @@ and coordinates with the StyleProcessor to handle styles.</p></div>
     
 
     
-    <h4 class="name" id="ComponentParser"><span class="type-signature"></span>new ComponentParser<span class="signature">(styleProcessor)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="ExpressionParser"><span class="type-signature"></span>new ExpressionParser<span class="signature">()</span><span class="type-signature"></span></h4>
     
 
     
@@ -60,55 +59,6 @@ and coordinates with the StyleProcessor to handle styles.</p></div>
 
 
 
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>styleProcessor</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><a href="StyleProcessor.html">StyleProcessor</a></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"><p>An instance of StyleProcessor to handle styles.</p></td>
-        </tr>
-
-    
-    </tbody>
-</table>
 
 
 
@@ -144,7 +94,7 @@ and coordinates with the StyleProcessor to handle styles.</p></div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_compiler_ComponentParser.js.html">lib/compiler/ComponentParser.js</a>, <a href="lib_compiler_ComponentParser.js.html#line10">line 10</a>
+        <a href="lib_compiler_expressionParser.js.html">lib/compiler/expressionParser.js</a>, <a href="lib_compiler_expressionParser.js.html#line5">line 5</a>
     </li></ul></dd>
     
 
@@ -190,146 +140,6 @@ and coordinates with the StyleProcessor to handle styles.</p></div>
     
 
     
-        <h3 class="subsection-title">Members</h3>
-
-        
-            
-<h4 class="name" id="expressionParser"><span class="type-signature"></span>expressionParser<span class="type-signature"> :<a href="ExpressionParser.html">ExpressionParser</a></span></h4>
-
-
-
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type"><a href="ExpressionParser.html">ExpressionParser</a></span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_compiler_ComponentParser.js.html">lib/compiler/ComponentParser.js</a>, <a href="lib_compiler_ComponentParser.js.html#line18">line 18</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id="styleProcessor"><span class="type-signature"></span>styleProcessor<span class="type-signature"> :<a href="StyleProcessor.html">StyleProcessor</a></span></h4>
-
-
-
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type"><a href="StyleProcessor.html">StyleProcessor</a></span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_compiler_ComponentParser.js.html">lib/compiler/ComponentParser.js</a>, <a href="lib_compiler_ComponentParser.js.html#line16">line 16</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-    
 
     
         <h3 class="subsection-title">Methods</h3>
@@ -340,7 +150,7 @@ and coordinates with the StyleProcessor to handle styles.</p></div>
     
 
     
-    <h4 class="name" id="parse"><span class="type-signature"></span>parse<span class="signature">(filePath)</span><span class="type-signature"> &rarr; {string}</span></h4>
+    <h4 class="name" id="parseComputed"><span class="type-signature"></span>parseComputed<span class="signature">(content)</span><span class="type-signature"> &rarr; {Object}</span></h4>
     
 
     
@@ -348,7 +158,7 @@ and coordinates with the StyleProcessor to handle styles.</p></div>
 
 
 <div class="description">
-    <p>Parses a .component.js file and its corresponding .component.css file.</p>
+    <p>Extracts computed property definitions from <computed /> tags.</p>
 </div>
 
 
@@ -384,7 +194,7 @@ and coordinates with the StyleProcessor to handle styles.</p></div>
 
         <tr>
             
-                <td class="name"><code>filePath</code></td>
+                <td class="name"><code>content</code></td>
             
 
             <td class="type">
@@ -400,7 +210,7 @@ and coordinates with the StyleProcessor to handle styles.</p></div>
 
             
 
-            <td class="description last"><p>The absolute path to the .component.js file.</p></td>
+            <td class="description last"><p>The component source code.</p></td>
         </tr>
 
     
@@ -441,7 +251,7 @@ and coordinates with the StyleProcessor to handle styles.</p></div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_compiler_ComponentParser.js.html">lib/compiler/ComponentParser.js</a>, <a href="lib_compiler_ComponentParser.js.html#line26">line 26</a>
+        <a href="lib_compiler_expressionParser.js.html">lib/compiler/expressionParser.js</a>, <a href="lib_compiler_expressionParser.js.html#line29">line 29</a>
     </li></ul></dd>
     
 
@@ -470,7 +280,7 @@ and coordinates with the StyleProcessor to handle styles.</p></div>
 
         
 <div class="param-desc">
-    <p>The generated JavaScript class for the component.</p>
+    <p>A map of computed property names to their expressions.</p>
 </div>
 
 
@@ -481,7 +291,325 @@ and coordinates with the StyleProcessor to handle styles.</p></div>
     </dt>
     <dd>
         
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="parseMethods"><span class="type-signature"></span>parseMethods<span class="signature">(content)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Extracts method definitions from <action /> tags.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>content</code></td>
+            
+
+            <td class="type">
+            
+                
 <span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The component source code.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lib_compiler_expressionParser.js.html">lib/compiler/expressionParser.js</a>, <a href="lib_compiler_expressionParser.js.html#line44">line 44</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>A map of method names to their source code.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="parseState"><span class="type-signature"></span>parseState<span class="signature">(content)</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    <p>Extracts the initial state from <state /> tags.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>content</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>The component source code.</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="lib_compiler_expressionParser.js.html">lib/compiler/expressionParser.js</a>, <a href="lib_compiler_expressionParser.js.html#line11">line 11</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    <p>The extracted state object.</p>
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
 
 
     </dd>

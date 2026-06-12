@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: ComponentParser</title>
+    <title>JSDoc: Class: StateFactory</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: ComponentParser</h1>
+    <h1 class="page-title">Class: StateFactory</h1>
 
     
 
@@ -28,11 +28,9 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>ComponentParser<span class="signature">(styleProcessor)</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>StateFactory<span class="signature">(handlerFactoryClass)</span><span class="type-signature"></span></h2>
         
-            <div class="class-description"><p>ComponentParser handles the parsing of Avenx component files (.js and .css).
-It extracts component state, computed properties, methods, and templates,
-and coordinates with the StyleProcessor to handle styles.</p></div>
+            <div class="class-description"><p>Factory for creating reactive state objects.</p></div>
         
     
 </header>
@@ -47,7 +45,7 @@ and coordinates with the StyleProcessor to handle styles.</p></div>
     
 
     
-    <h4 class="name" id="ComponentParser"><span class="type-signature"></span>new ComponentParser<span class="signature">(styleProcessor)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="StateFactory"><span class="type-signature"></span>new StateFactory<span class="signature">(handlerFactoryClass)</span><span class="type-signature"></span></h4>
     
 
     
@@ -87,15 +85,10 @@ and coordinates with the StyleProcessor to handle styles.</p></div>
 
         <tr>
             
-                <td class="name"><code>styleProcessor</code></td>
+                <td class="name"><code>handlerFactoryClass</code></td>
             
 
             <td class="type">
-            
-                
-<span class="param-type"><a href="StyleProcessor.html">StyleProcessor</a></span>
-
-
             
             </td>
 
@@ -103,7 +96,7 @@ and coordinates with the StyleProcessor to handle styles.</p></div>
 
             
 
-            <td class="description last"><p>An instance of StyleProcessor to handle styles.</p></td>
+            <td class="description last"></td>
         </tr>
 
     
@@ -144,7 +137,7 @@ and coordinates with the StyleProcessor to handle styles.</p></div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_compiler_ComponentParser.js.html">lib/compiler/ComponentParser.js</a>, <a href="lib_compiler_ComponentParser.js.html#line10">line 10</a>
+        <a href="lib_core_reactive_createState.js.html">lib/core/reactive/createState.js</a>, <a href="lib_core_reactive_createState.js.html#line6">line 6</a>
     </li></ul></dd>
     
 
@@ -182,6 +175,13 @@ and coordinates with the StyleProcessor to handle styles.</p></div>
     
 
     
+        <h3 class="subsection-title">Classes</h3>
+
+        <dl>
+            <dt><a href="StateFactory.html">StateFactory</a></dt>
+            <dd></dd>
+        </dl>
+    
 
     
 
@@ -194,22 +194,12 @@ and coordinates with the StyleProcessor to handle styles.</p></div>
 
         
             
-<h4 class="name" id="expressionParser"><span class="type-signature"></span>expressionParser<span class="type-signature"> :<a href="ExpressionParser.html">ExpressionParser</a></span></h4>
+<h4 class="name" id="handlerFactoryClass"><span class="type-signature"></span>handlerFactoryClass<span class="type-signature"></span></h4>
 
 
 
 
 
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type"><a href="ExpressionParser.html">ExpressionParser</a></span>
-
-
-        </li>
-    </ul>
 
 
 
@@ -244,75 +234,7 @@ and coordinates with the StyleProcessor to handle styles.</p></div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_compiler_ComponentParser.js.html">lib/compiler/ComponentParser.js</a>, <a href="lib_compiler_ComponentParser.js.html#line18">line 18</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id="styleProcessor"><span class="type-signature"></span>styleProcessor<span class="type-signature"> :<a href="StyleProcessor.html">StyleProcessor</a></span></h4>
-
-
-
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type"><a href="StyleProcessor.html">StyleProcessor</a></span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_compiler_ComponentParser.js.html">lib/compiler/ComponentParser.js</a>, <a href="lib_compiler_ComponentParser.js.html#line16">line 16</a>
+        <a href="lib_core_reactive_createState.js.html">lib/core/reactive/createState.js</a>, <a href="lib_core_reactive_createState.js.html#line12">line 12</a>
     </li></ul></dd>
     
 
@@ -340,7 +262,7 @@ and coordinates with the StyleProcessor to handle styles.</p></div>
     
 
     
-    <h4 class="name" id="parse"><span class="type-signature"></span>parse<span class="signature">(filePath)</span><span class="type-signature"> &rarr; {string}</span></h4>
+    <h4 class="name" id="create"><span class="type-signature"></span>create<span class="signature">(initialState<span class="signature-attributes">opt</span>, options<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Proxy}</span></h4>
     
 
     
@@ -348,7 +270,7 @@ and coordinates with the StyleProcessor to handle styles.</p></div>
 
 
 <div class="description">
-    <p>Parses a .component.js file and its corresponding .component.css file.</p>
+    <p>Creates a reactive proxy for the given initial state.</p>
 </div>
 
 
@@ -372,7 +294,11 @@ and coordinates with the StyleProcessor to handle styles.</p></div>
         <th>Type</th>
 
         
+        <th>Attributes</th>
+        
 
+        
+        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -384,23 +310,78 @@ and coordinates with the StyleProcessor to handle styles.</p></div>
 
         <tr>
             
-                <td class="name"><code>filePath</code></td>
+                <td class="name"><code>initialState</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">string</span>
+<span class="param-type">Object</span>
 
 
             
             </td>
 
             
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
 
+                
+
+                
+                </td>
             
 
-            <td class="description last"><p>The absolute path to the .component.js file.</p></td>
+            
+                <td class="default">
+                
+                    {}
+                
+                </td>
+            
+
+            <td class="description last"><p>The initial state object.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    {}
+                
+                </td>
+            
+
+            <td class="description last"><p>Configuration options for the proxy handler.</p></td>
         </tr>
 
     
@@ -441,7 +422,7 @@ and coordinates with the StyleProcessor to handle styles.</p></div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_compiler_ComponentParser.js.html">lib/compiler/ComponentParser.js</a>, <a href="lib_compiler_ComponentParser.js.html#line26">line 26</a>
+        <a href="lib_core_reactive_createState.js.html">lib/core/reactive/createState.js</a>, <a href="lib_core_reactive_createState.js.html#line21">line 21</a>
     </li></ul></dd>
     
 
@@ -470,7 +451,7 @@ and coordinates with the StyleProcessor to handle styles.</p></div>
 
         
 <div class="param-desc">
-    <p>The generated JavaScript class for the component.</p>
+    <p>The reactive state proxy.</p>
 </div>
 
 
@@ -481,7 +462,7 @@ and coordinates with the StyleProcessor to handle styles.</p></div>
     </dt>
     <dd>
         
-<span class="param-type">string</span>
+<span class="param-type">Proxy</span>
 
 
     </dd>

@@ -30,9 +30,8 @@
     
         <h2><span class="attribs"><span class="type-signature"></span></span>AvenxApp<span class="signature">(config)</span><span class="type-signature"></span></h2>
         
-            <div class="class-description"><p>AvenxApp is the main orchestrator for an Avenx application.
-It manages the registration of component classes, the creation and management of shared reactive states (bridges),
-and the mounting of component instances to the DOM.</p></div>
+            <div class="class-description"><p>The main application class for Avenx.
+Manages component registration, bridge registration, and mounting.</p></div>
         
     
 </header>
@@ -53,10 +52,6 @@ and the mounting of component instances to the DOM.</p></div>
     
 
 
-
-<div class="description">
-    <p>Creates an instance of AvenxApp.</p>
-</div>
 
 
 
@@ -107,7 +102,7 @@ and the mounting of component instances to the DOM.</p></div>
 
             
 
-            <td class="description last"><p>The application configuration.</p>
+            <td class="description last"><p>Application configuration.</p>
                 <h6>Properties</h6>
                 
 
@@ -149,7 +144,7 @@ and the mounting of component instances to the DOM.</p></div>
 
             
 
-            <td class="description last"><p>The CSS selector for the main application container.</p></td>
+            <td class="description last"><p>Selector for the main application container.</p></td>
         </tr>
 
     
@@ -197,7 +192,7 @@ and the mounting of component instances to the DOM.</p></div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_runtime_AvenxApp.js.html">lib/runtime/AvenxApp.js</a>, <a href="lib_runtime_AvenxApp.js.html#line6">line 6</a>
+        <a href="lib_core_runtime_AvenxApp.js.html">lib/core/runtime/AvenxApp.js</a>, <a href="lib_core_runtime_AvenxApp.js.html#line5">line 5</a>
     </li></ul></dd>
     
 
@@ -254,14 +249,10 @@ and the mounting of component instances to the DOM.</p></div>
 
         
             
-<h4 class="name" id="bridges"><span class="type-signature"></span>bridges<span class="type-signature"> :Object.&lt;string, Proxy></span></h4>
+<h4 class="name" id="bridges"><span class="type-signature"></span>bridges<span class="type-signature"> :Object</span></h4>
 
 
 
-
-<div class="description">
-    <p>A map of shared reactive state objects (bridges).</p>
-</div>
 
 
 
@@ -269,7 +260,7 @@ and the mounting of component instances to the DOM.</p></div>
     <ul>
         <li>
             
-<span class="param-type">Object.&lt;string, Proxy></span>
+<span class="param-type">Object</span>
 
 
         </li>
@@ -308,7 +299,7 @@ and the mounting of component instances to the DOM.</p></div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_runtime_AvenxApp.js.html">lib/runtime/AvenxApp.js</a>, <a href="lib_runtime_AvenxApp.js.html#line37">line 37</a>
+        <a href="lib_core_runtime_AvenxApp.js.html">lib/core/runtime/AvenxApp.js</a>, <a href="lib_core_runtime_AvenxApp.js.html#line20">line 20</a>
     </li></ul></dd>
     
 
@@ -326,26 +317,12 @@ and the mounting of component instances to the DOM.</p></div>
 
         
             
-<h4 class="name" id="components"><span class="type-signature"></span>components<span class="type-signature"> :Map.&lt;string, function()></span></h4>
+<h4 class="name" id="components"><span class="type-signature"></span>components<span class="type-signature"></span></h4>
 
 
 
 
-<div class="description">
-    <p>A map of registered component names to their respective class constructors.</p>
-</div>
 
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type">Map.&lt;string, function()></span>
-
-
-        </li>
-    </ul>
 
 
 
@@ -380,7 +357,7 @@ and the mounting of component instances to the DOM.</p></div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_runtime_AvenxApp.js.html">lib/runtime/AvenxApp.js</a>, <a href="lib_runtime_AvenxApp.js.html#line32">line 32</a>
+        <a href="lib_core_runtime_AvenxApp.js.html">lib/core/runtime/AvenxApp.js</a>, <a href="lib_core_runtime_AvenxApp.js.html#line18">line 18</a>
     </li></ul></dd>
     
 
@@ -416,8 +393,7 @@ and the mounting of component instances to the DOM.</p></div>
 
 
 <div class="description">
-    <p>Mounts a registered component to a specific target element.
-Creates a new instance of the component class and provides it with access to all registered bridges.</p>
+    <p>Mounts a component to a target element.</p>
 </div>
 
 
@@ -485,7 +461,7 @@ Creates a new instance of the component class and provides it with access to all
                 </td>
             
 
-            <td class="description last"><p>The name of the registered component to mount.</p></td>
+            <td class="description last"><p>The name of the component to mount.</p></td>
         </tr>
 
     
@@ -527,8 +503,7 @@ Creates a new instance of the component class and provides it with access to all
                 </td>
             
 
-            <td class="description last"><p>The CSS selector for the target mount point.
-If null, the application's default target is used.</p></td>
+            <td class="description last"><p>Optional selector for the mount target.</p></td>
         </tr>
 
     
@@ -569,7 +544,7 @@ If null, the application's default target is used.</p></td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_runtime_AvenxApp.js.html">lib/runtime/AvenxApp.js</a>, <a href="lib_runtime_AvenxApp.js.html#line100">line 100</a>
+        <a href="lib_core_runtime_AvenxApp.js.html">lib/core/runtime/AvenxApp.js</a>, <a href="lib_core_runtime_AvenxApp.js.html#line79">line 79</a>
     </li></ul></dd>
     
 
@@ -613,7 +588,7 @@ If null, the application's default target is used.</p></td>
 
 
 <div class="description">
-    <p>Registers a component class under a specific name, making it available for mounting.</p>
+    <p>Registers a component with the application.</p>
 </div>
 
 
@@ -665,7 +640,7 @@ If null, the application's default target is used.</p></td>
 
             
 
-            <td class="description last"><p>The unique name for the component.</p></td>
+            <td class="description last"><p>The name of the component.</p></td>
         </tr>
 
     
@@ -677,18 +652,13 @@ If null, the application's default target is used.</p></td>
 
             <td class="type">
             
-                
-<span class="param-type">function</span>
-
-
-            
             </td>
 
             
 
             
 
-            <td class="description last"><p>The component class constructor.</p></td>
+            <td class="description last"></td>
         </tr>
 
     
@@ -729,7 +699,7 @@ If null, the application's default target is used.</p></td>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_runtime_AvenxApp.js.html">lib/runtime/AvenxApp.js</a>, <a href="lib_runtime_AvenxApp.js.html#line45">line 45</a>
+        <a href="lib_core_runtime_AvenxApp.js.html">lib/core/runtime/AvenxApp.js</a>, <a href="lib_core_runtime_AvenxApp.js.html#line28">line 28</a>
     </li></ul></dd>
     
 
@@ -773,8 +743,8 @@ If null, the application's default target is used.</p></td>
 
 
 <div class="description">
-    <p>Registers a shared reactive state object or class (bridge).
-Changes to a bridge's state will automatically trigger a re-render for all active components.</p>
+    <p>Registers a bridge with the application.
+Bridges provide shared state and logic across components.</p>
 </div>
 
 
@@ -826,7 +796,7 @@ Changes to a bridge's state will automatically trigger a re-render for all activ
 
             
 
-            <td class="description last"><p>The unique name for the bridge.</p></td>
+            <td class="description last"><p>The name of the bridge.</p></td>
         </tr>
 
     
@@ -852,7 +822,7 @@ Changes to a bridge's state will automatically trigger a re-render for all activ
 
             
 
-            <td class="description last"><p>The initial state data or a Bridge class.</p></td>
+            <td class="description last"><p>The bridge data or constructor.</p></td>
         </tr>
 
     
@@ -893,7 +863,7 @@ Changes to a bridge's state will automatically trigger a re-render for all activ
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_runtime_AvenxApp.js.html">lib/runtime/AvenxApp.js</a>, <a href="lib_runtime_AvenxApp.js.html#line55">line 55</a>
+        <a href="lib_core_runtime_AvenxApp.js.html">lib/core/runtime/AvenxApp.js</a>, <a href="lib_core_runtime_AvenxApp.js.html#line38">line 38</a>
     </li></ul></dd>
     
 
@@ -937,7 +907,7 @@ Changes to a bridge's state will automatically trigger a re-render for all activ
 
 
 <div class="description">
-    <p>Triggers an update (re-render) for every active (mounted) component instance in the application.</p>
+    <p>Updates all active components in the application.</p>
 </div>
 
 
@@ -981,7 +951,7 @@ Changes to a bridge's state will automatically trigger a re-render for all activ
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_runtime_AvenxApp.js.html">lib/runtime/AvenxApp.js</a>, <a href="lib_runtime_AvenxApp.js.html#line89">line 89</a>
+        <a href="lib_core_runtime_AvenxApp.js.html">lib/core/runtime/AvenxApp.js</a>, <a href="lib_core_runtime_AvenxApp.js.html#line70">line 70</a>
     </li></ul></dd>
     
 
@@ -1027,13 +997,13 @@ Changes to a bridge's state will automatically trigger a re-render for all activ
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="AvenxApp.html">AvenxApp</a></li><li><a href="AvenxBridge.html">AvenxBridge</a></li><li><a href="AvenxCLI.html">AvenxCLI</a></li><li><a href="AvenxCompiler.html">AvenxCompiler</a></li><li><a href="AvenxComponent.html">AvenxComponent</a></li><li><a href="ComponentParser.html">ComponentParser</a></li><li><a href="StyleProcessor.html">StyleProcessor</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-lib_core_index.html">lib/core/index</a></li></ul><h3>Classes</h3><ul><li><a href="AvenxApp.html">AvenxApp</a></li><li><a href="AvenxBridge.html">AvenxBridge</a></li><li><a href="AvenxCLI.html">AvenxCLI</a></li><li><a href="AvenxCompiler.html">AvenxCompiler</a></li><li><a href="AvenxComponent.html">AvenxComponent</a></li><li><a href="ComponentParser.html">ComponentParser</a></li><li><a href="ComputedRegistry.html">ComputedRegistry</a></li><li><a href="DomPatcher.html">DomPatcher</a></li><li><a href="DynamicEvaluator.html">DynamicEvaluator</a></li><li><a href="EventBinder.html">EventBinder</a></li><li><a href="EventExecutor.html">EventExecutor</a></li><li><a href="ExpressionParser.html">ExpressionParser</a></li><li><a href="HtmlDiff.html">HtmlDiff</a></li><li><a href="HtmlEscaper.html">HtmlEscaper</a></li><li><a href="LifecycleManager.html">LifecycleManager</a></li><li><a href="ProxyHandlerFactory.html">ProxyHandlerFactory</a></li><li><a href="Sanitizer.html">Sanitizer</a></li><li><a href="StateFactory.html">StateFactory</a></li><li><a href="StyleProcessor.html">StyleProcessor</a></li><li><a href="TemplateRenderer.html">TemplateRenderer</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Wed Jun 10 2026 12:27:06 GMT+0200 (Mitteleuropäische Sommerzeit)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Thu Jun 11 2026 13:17:17 GMT+0200 (Mitteleuropäische Sommerzeit)
 </footer>
 
 <script> prettyPrint(); </script>

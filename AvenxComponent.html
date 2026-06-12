@@ -30,9 +30,8 @@
     
         <h2><span class="attribs"><span class="type-signature"></span></span>AvenxComponent<span class="signature">(initialState<span class="signature-attributes">opt</span>, computed<span class="signature-attributes">opt</span>, bridges<span class="signature-attributes">opt</span>, template<span class="signature-attributes">opt</span>, methods<span class="signature-attributes">opt</span>)</span><span class="type-signature"></span></h2>
         
-            <div class="class-description"><p>AvenxComponent is the base class for all Avenx components.
-It provides core functionality for reactivity, template rendering, and event binding.
-It uses a Proxy-based state management system to automatically trigger re-renders on state changes.</p></div>
+            <div class="class-description"><p>Base class for all Avenx components.
+Manages state, reactivity, rendering, and lifecycle.</p></div>
         
     
 </header>
@@ -53,10 +52,6 @@ It uses a Proxy-based state management system to automatically trigger re-render
     
 
 
-
-<div class="description">
-    <p>Creates an instance of AvenxComponent.</p>
-</div>
 
 
 
@@ -127,7 +122,7 @@ It uses a Proxy-based state management system to automatically trigger re-render
                 </td>
             
 
-            <td class="description last"><p>The initial local state of the component.</p></td>
+            <td class="description last"><p>The initial state of the component.</p></td>
         </tr>
 
     
@@ -166,7 +161,7 @@ It uses a Proxy-based state management system to automatically trigger re-render
                 </td>
             
 
-            <td class="description last"><p>Computed property definitions.</p></td>
+            <td class="description last"><p>Computed properties definitions.</p></td>
         </tr>
 
     
@@ -205,7 +200,7 @@ It uses a Proxy-based state management system to automatically trigger re-render
                 </td>
             
 
-            <td class="description last"><p>Shared reactive states (bridges) accessible to the component.</p></td>
+            <td class="description last"><p>External bridges accessible to the component.</p></td>
         </tr>
 
     
@@ -244,7 +239,7 @@ It uses a Proxy-based state management system to automatically trigger re-render
                 </td>
             
 
-            <td class="description last"><p>The HTML template for the component.</p></td>
+            <td class="description last"><p>The HTML template string.</p></td>
         </tr>
 
     
@@ -283,7 +278,7 @@ It uses a Proxy-based state management system to automatically trigger re-render
                 </td>
             
 
-            <td class="description last"><p>A map of methods available to the component's context.</p></td>
+            <td class="description last"><p>Component methods.</p></td>
         </tr>
 
     
@@ -324,7 +319,7 @@ It uses a Proxy-based state management system to automatically trigger re-render
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_runtime_AvenxComponent.js.html">lib/runtime/AvenxComponent.js</a>, <a href="lib_runtime_AvenxComponent.js.html#line6">line 6</a>
+        <a href="lib_core_runtime_AvenxComponent.js.html">lib/core/runtime/AvenxComponent.js</a>, <a href="lib_core_runtime_AvenxComponent.js.html#line14">line 14</a>
     </li></ul></dd>
     
 
@@ -387,9 +382,7 @@ It uses a Proxy-based state management system to automatically trigger re-render
 
 
 <div class="description">
-    <p>The reactive state of the component.
-Changes to this object trigger an automatic re-render via the Proxy's set trap.
-Computed properties are evaluated on access.</p>
+    <p>The reactive state of the component.</p>
 </div>
 
 
@@ -437,7 +430,7 @@ Computed properties are evaluated on access.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_runtime_AvenxComponent.js.html">lib/runtime/AvenxComponent.js</a>, <a href="lib_runtime_AvenxComponent.js.html#line62">line 62</a>
+        <a href="lib_core_runtime_AvenxComponent.js.html">lib/core/runtime/AvenxComponent.js</a>, <a href="lib_core_runtime_AvenxComponent.js.html#line59">line 59</a>
     </li></ul></dd>
     
 
@@ -473,7 +466,7 @@ Computed properties are evaluated on access.</p>
 
 
 <div class="description">
-    <p>Mounts the component to a specific target DOM element and triggers the initial render.</p>
+    <p>Mounts the component to a target element.</p>
 </div>
 
 
@@ -515,7 +508,10 @@ Computed properties are evaluated on access.</p>
             <td class="type">
             
                 
-<span class="param-type">HTMLElement</span>
+<span class="param-type">Element</span>
+|
+
+<span class="param-type">string</span>
 
 
             
@@ -525,7 +521,7 @@ Computed properties are evaluated on access.</p>
 
             
 
-            <td class="description last"><p>The DOM element where the component should be mounted.</p></td>
+            <td class="description last"><p>The target element or selector.</p></td>
         </tr>
 
     
@@ -566,7 +562,7 @@ Computed properties are evaluated on access.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_runtime_AvenxComponent.js.html">lib/runtime/AvenxComponent.js</a>, <a href="lib_runtime_AvenxComponent.js.html#line168">line 168</a>
+        <a href="lib_core_runtime_AvenxComponent.js.html">lib/core/runtime/AvenxComponent.js</a>, <a href="lib_core_runtime_AvenxComponent.js.html#line156">line 156</a>
     </li></ul></dd>
     
 
@@ -610,7 +606,7 @@ Computed properties are evaluated on access.</p>
 
 
 <div class="description">
-    <p>Renders the component's template by interpolating expressions (e.g., {{ expression }}).</p>
+    <p>Renders the component template with current state.</p>
 </div>
 
 
@@ -654,7 +650,7 @@ Computed properties are evaluated on access.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_runtime_AvenxComponent.js.html">lib/runtime/AvenxComponent.js</a>, <a href="lib_runtime_AvenxComponent.js.html#line124">line 124</a>
+        <a href="lib_core_runtime_AvenxComponent.js.html">lib/core/runtime/AvenxComponent.js</a>, <a href="lib_core_runtime_AvenxComponent.js.html#line130">line 130</a>
     </li></ul></dd>
     
 
@@ -683,7 +679,7 @@ Computed properties are evaluated on access.</p>
 
         
 <div class="param-desc">
-    <p>The interpolated HTML string.</p>
+    <p>The rendered HTML string.</p>
 </div>
 
 
@@ -720,7 +716,7 @@ Computed properties are evaluated on access.</p>
 
 
 <div class="description">
-    <p>Updates the component's DOM element by re-rendering the template and re-binding all events.</p>
+    <p>Updates the component in the DOM by re-rendering and patching.</p>
 </div>
 
 
@@ -764,7 +760,7 @@ Computed properties are evaluated on access.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_runtime_AvenxComponent.js.html">lib/runtime/AvenxComponent.js</a>, <a href="lib_runtime_AvenxComponent.js.html#line140">line 140</a>
+        <a href="lib_core_runtime_AvenxComponent.js.html">lib/core/runtime/AvenxComponent.js</a>, <a href="lib_core_runtime_AvenxComponent.js.html#line137">line 137</a>
     </li></ul></dd>
     
 
@@ -810,13 +806,13 @@ Computed properties are evaluated on access.</p>
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="AvenxApp.html">AvenxApp</a></li><li><a href="AvenxBridge.html">AvenxBridge</a></li><li><a href="AvenxCLI.html">AvenxCLI</a></li><li><a href="AvenxCompiler.html">AvenxCompiler</a></li><li><a href="AvenxComponent.html">AvenxComponent</a></li><li><a href="ComponentParser.html">ComponentParser</a></li><li><a href="StyleProcessor.html">StyleProcessor</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-lib_core_index.html">lib/core/index</a></li></ul><h3>Classes</h3><ul><li><a href="AvenxApp.html">AvenxApp</a></li><li><a href="AvenxBridge.html">AvenxBridge</a></li><li><a href="AvenxCLI.html">AvenxCLI</a></li><li><a href="AvenxCompiler.html">AvenxCompiler</a></li><li><a href="AvenxComponent.html">AvenxComponent</a></li><li><a href="ComponentParser.html">ComponentParser</a></li><li><a href="ComputedRegistry.html">ComputedRegistry</a></li><li><a href="DomPatcher.html">DomPatcher</a></li><li><a href="DynamicEvaluator.html">DynamicEvaluator</a></li><li><a href="EventBinder.html">EventBinder</a></li><li><a href="EventExecutor.html">EventExecutor</a></li><li><a href="ExpressionParser.html">ExpressionParser</a></li><li><a href="HtmlDiff.html">HtmlDiff</a></li><li><a href="HtmlEscaper.html">HtmlEscaper</a></li><li><a href="LifecycleManager.html">LifecycleManager</a></li><li><a href="ProxyHandlerFactory.html">ProxyHandlerFactory</a></li><li><a href="Sanitizer.html">Sanitizer</a></li><li><a href="StateFactory.html">StateFactory</a></li><li><a href="StyleProcessor.html">StyleProcessor</a></li><li><a href="TemplateRenderer.html">TemplateRenderer</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Wed Jun 10 2026 12:27:06 GMT+0200 (Mitteleuropäische Sommerzeit)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Thu Jun 11 2026 13:17:17 GMT+0200 (Mitteleuropäische Sommerzeit)
 </footer>
 
 <script> prettyPrint(); </script>

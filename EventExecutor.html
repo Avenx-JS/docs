@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: ComponentParser</title>
+    <title>JSDoc: Class: EventExecutor</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: ComponentParser</h1>
+    <h1 class="page-title">Class: EventExecutor</h1>
 
     
 
@@ -28,11 +28,9 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>ComponentParser<span class="signature">(styleProcessor)</span><span class="type-signature"></span></h2>
+        <h2><span class="attribs"><span class="type-signature"></span></span>EventExecutor<span class="signature">(runHandler)</span><span class="type-signature"></span></h2>
         
-            <div class="class-description"><p>ComponentParser handles the parsing of Avenx component files (.js and .css).
-It extracts component state, computed properties, methods, and templates,
-and coordinates with the StyleProcessor to handle styles.</p></div>
+            <div class="class-description"><p>Handles the execution of event handlers.</p></div>
         
     
 </header>
@@ -47,7 +45,7 @@ and coordinates with the StyleProcessor to handle styles.</p></div>
     
 
     
-    <h4 class="name" id="ComponentParser"><span class="type-signature"></span>new ComponentParser<span class="signature">(styleProcessor)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="EventExecutor"><span class="type-signature"></span>new EventExecutor<span class="signature">(runHandler)</span><span class="type-signature"></span></h4>
     
 
     
@@ -87,15 +85,10 @@ and coordinates with the StyleProcessor to handle styles.</p></div>
 
         <tr>
             
-                <td class="name"><code>styleProcessor</code></td>
+                <td class="name"><code>runHandler</code></td>
             
 
             <td class="type">
-            
-                
-<span class="param-type"><a href="StyleProcessor.html">StyleProcessor</a></span>
-
-
             
             </td>
 
@@ -103,7 +96,7 @@ and coordinates with the StyleProcessor to handle styles.</p></div>
 
             
 
-            <td class="description last"><p>An instance of StyleProcessor to handle styles.</p></td>
+            <td class="description last"></td>
         </tr>
 
     
@@ -144,7 +137,7 @@ and coordinates with the StyleProcessor to handle styles.</p></div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_compiler_ComponentParser.js.html">lib/compiler/ComponentParser.js</a>, <a href="lib_compiler_ComponentParser.js.html#line10">line 10</a>
+        <a href="lib_core_events_eventExecutor.js.html">lib/core/events/eventExecutor.js</a>, <a href="lib_core_events_eventExecutor.js.html#line4">line 4</a>
     </li></ul></dd>
     
 
@@ -182,6 +175,13 @@ and coordinates with the StyleProcessor to handle styles.</p></div>
     
 
     
+        <h3 class="subsection-title">Classes</h3>
+
+        <dl>
+            <dt><a href="EventExecutor.html">EventExecutor</a></dt>
+            <dd></dd>
+        </dl>
+    
 
     
 
@@ -194,22 +194,12 @@ and coordinates with the StyleProcessor to handle styles.</p></div>
 
         
             
-<h4 class="name" id="expressionParser"><span class="type-signature"></span>expressionParser<span class="type-signature"> :<a href="ExpressionParser.html">ExpressionParser</a></span></h4>
+<h4 class="name" id="runHandler"><span class="type-signature"></span>runHandler<span class="type-signature"></span></h4>
 
 
 
 
 
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type"><a href="ExpressionParser.html">ExpressionParser</a></span>
-
-
-        </li>
-    </ul>
 
 
 
@@ -244,75 +234,7 @@ and coordinates with the StyleProcessor to handle styles.</p></div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_compiler_ComponentParser.js.html">lib/compiler/ComponentParser.js</a>, <a href="lib_compiler_ComponentParser.js.html#line18">line 18</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-        
-            
-<h4 class="name" id="styleProcessor"><span class="type-signature"></span>styleProcessor<span class="type-signature"> :<a href="StyleProcessor.html">StyleProcessor</a></span></h4>
-
-
-
-
-
-
-    <h5>Type:</h5>
-    <ul>
-        <li>
-            
-<span class="param-type"><a href="StyleProcessor.html">StyleProcessor</a></span>
-
-
-        </li>
-    </ul>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_compiler_ComponentParser.js.html">lib/compiler/ComponentParser.js</a>, <a href="lib_compiler_ComponentParser.js.html#line16">line 16</a>
+        <a href="lib_core_events_eventExecutor.js.html">lib/core/events/eventExecutor.js</a>, <a href="lib_core_events_eventExecutor.js.html#line12">line 12</a>
     </li></ul></dd>
     
 
@@ -340,7 +262,7 @@ and coordinates with the StyleProcessor to handle styles.</p></div>
     
 
     
-    <h4 class="name" id="parse"><span class="type-signature"></span>parse<span class="signature">(filePath)</span><span class="type-signature"> &rarr; {string}</span></h4>
+    <h4 class="name" id="execute"><span class="type-signature"></span>execute<span class="signature">(source, event<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {any}</span></h4>
     
 
     
@@ -348,7 +270,7 @@ and coordinates with the StyleProcessor to handle styles.</p></div>
 
 
 <div class="description">
-    <p>Parses a .component.js file and its corresponding .component.css file.</p>
+    <p>Executes the event handler for a given source.</p>
 </div>
 
 
@@ -372,7 +294,11 @@ and coordinates with the StyleProcessor to handle styles.</p></div>
         <th>Type</th>
 
         
+        <th>Attributes</th>
+        
 
+        
+        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -384,7 +310,7 @@ and coordinates with the StyleProcessor to handle styles.</p></div>
 
         <tr>
             
-                <td class="name"><code>filePath</code></td>
+                <td class="name"><code>source</code></td>
             
 
             <td class="type">
@@ -397,10 +323,64 @@ and coordinates with the StyleProcessor to handle styles.</p></div>
             </td>
 
             
+                <td class="attributes">
+                
 
+                
+
+                
+                </td>
             
 
-            <td class="description last"><p>The absolute path to the .component.js file.</p></td>
+            
+                <td class="default">
+                
+                </td>
+            
+
+            <td class="description last"><p>The source code or identifier for the event handler.</p></td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>event</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Event</span>
+|
+
+<span class="param-type">null</span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    null
+                
+                </td>
+            
+
+            <td class="description last"><p>The event object, if any.</p></td>
         </tr>
 
     
@@ -441,7 +421,7 @@ and coordinates with the StyleProcessor to handle styles.</p></div>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_compiler_ComponentParser.js.html">lib/compiler/ComponentParser.js</a>, <a href="lib_compiler_ComponentParser.js.html#line26">line 26</a>
+        <a href="lib_core_events_eventExecutor.js.html">lib/core/events/eventExecutor.js</a>, <a href="lib_core_events_eventExecutor.js.html#line21">line 21</a>
     </li></ul></dd>
     
 
@@ -470,7 +450,7 @@ and coordinates with the StyleProcessor to handle styles.</p></div>
 
         
 <div class="param-desc">
-    <p>The generated JavaScript class for the component.</p>
+    <p>The result of the event handler execution.</p>
 </div>
 
 
@@ -481,7 +461,7 @@ and coordinates with the StyleProcessor to handle styles.</p></div>
     </dt>
     <dd>
         
-<span class="param-type">string</span>
+<span class="param-type">any</span>
 
 
     </dd>

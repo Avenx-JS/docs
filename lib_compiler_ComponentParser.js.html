@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Source: lib/core/ComponentParser.js</title>
+    <title>JSDoc: Source: lib/compiler/ComponentParser.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Source: lib/core/ComponentParser.js</h1>
+    <h1 class="page-title">Source: lib/compiler/ComponentParser.js</h1>
 
     
 
@@ -28,24 +28,26 @@
         <article>
             <pre class="prettyprint source linenums"><code>const fs = require('fs');
 const path = require('path');
+const ExpressionParser = require('./expressionParser');
 
 /**
- * ComponentParser handles the parsing of Avenx Template (.axt) and Avenx Design (.axd) files.
- * It extracts component state, methods, and templates, and coordinates with the StyleProcessor
- * to handle scoped styles and CSS variables.
+ * ComponentParser handles the parsing of Avenx component files (.js and .css).
+ * It extracts component state, computed properties, methods, and templates,
+ * and coordinates with the StyleProcessor to handle styles.
  */
 class ComponentParser {
     /**
-     * Creates an instance of ComponentParser.
      * @param {StyleProcessor} styleProcessor - An instance of StyleProcessor to handle styles.
      */
     constructor(styleProcessor) {
         /** @type {StyleProcessor} */
         this.styleProcessor = styleProcessor;
+        /** @type {ExpressionParser} */
+        this.expressionParser = new ExpressionParser();
     }
 
     /**
-     * Parses a .component.js file and its corresponding .component.css file into a JavaScript class string.
+     * Parses a .component.js file and its corresponding .component.css file.
      * @param {string} filePath - The absolute path to the .component.js file.
      * @returns {string} The generated JavaScript class for the component.
      */
@@ -83,8 +85,8 @@ class ${name} extends AvenxComponent {
     }
 
     /**
-     * Extracts global CSS variables and component-specific style blocks from .axd content.
-     * @param {string} desContent - The content of the .axd file.
+     * Extracts global CSS variables and component-specific style blocks from CSS content.
+     * @param {string} desContent - The content of the .component.css file.
      * @param {Object} desBlocks - An object to store the extracted style blocks.
      * @private
      */
@@ -128,59 +130,38 @@ class ${name} extends AvenxComponent {
     }
 
     /**
-     * Extracts the initial state from the component's &lt;state /> tag.
-     * @param {string} content - The content of the .axt file.
+     * Extracts the initial state from the component's &lt;state /> tags.
+     * @param {string} content - The content of the .component.js file.
      * @returns {Object} The extracted state object.
      * @private
      */
     extractState(content) {
-        const state = {};
-        const match = content.match(/&lt;state\s+(.*?)\s*\/>/);
-        if (match) {
-            match[1].match(/(\w+)="([^"]*)"/g)?.forEach(pair => {
-                const [k, v] = pair.split('=');
-                const val = v.replace(/"/g, '');
-                state[k] = isNaN(val) ? val : Number(val);
-            });
-        }
-        return state;
+        return this.expressionParser.parseState(content);
     }
 
     /**
      * Extracts computed properties from the component's &lt;computed /> tags.
-     * @param {string} content - The content of the .axt file.
+     * @param {string} content - The content of the .component.js file.
      * @returns {Object} A map of property names to their expression strings.
      * @private
      */
     extractComputed(content) {
-        const computed = {};
-        const regex = /&lt;computed\s+name="(\w+)"\s+value="([^"]*)"\s*\/>/g;
-        let m;
-        while ((m = regex.exec(content)) !== null) {
-            computed[m[1]] = m[2];
-        }
-        return computed;
+        return this.expressionParser.parseComputed(content);
     }
 
     /**
      * Extracts actions (methods) from the component's &lt;action /> tags.
-     * @param {string} content - The content of the .axt file.
+     * @param {string} content - The content of the .component.js file.
      * @returns {Object&lt;string, string>} A map of method names to their stringified bodies.
      * @private
      */
     extractMethods(content) {
-        const methods = {};
-        const actionRegex = /&lt;action\s+name="(\w+)">([\s\S]*?)&lt;\/action>/g;
-        let m;
-        while ((m = actionRegex.exec(content)) !== null) {
-            methods[m[1]] = m[2].trim().replace(/\s+/g, ' ');
-        }
-        return methods;
+        return this.expressionParser.parseMethods(content);
     }
 
     /**
-     * Extracts the HTML template, removes meta tags, and processes internal styles.
-     * @param {string} content - The content of the .axt file.
+     * Extracts the HTML template and processes internal styles.
+     * @param {string} content - The content of the .component.js file.
      * @param {Object} desBlocks - The previously extracted design blocks.
      * @param {string} name - The name of the component for style hashing.
      * @returns {string} The cleaned and processed HTML template.
@@ -208,13 +189,13 @@ module.exports = ComponentParser;
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="AvenxApp.html">AvenxApp</a></li><li><a href="AvenxBridge.html">AvenxBridge</a></li><li><a href="AvenxCLI.html">AvenxCLI</a></li><li><a href="AvenxCompiler.html">AvenxCompiler</a></li><li><a href="AvenxComponent.html">AvenxComponent</a></li><li><a href="ComponentParser.html">ComponentParser</a></li><li><a href="StyleProcessor.html">StyleProcessor</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-lib_core_index.html">lib/core/index</a></li></ul><h3>Classes</h3><ul><li><a href="AvenxApp.html">AvenxApp</a></li><li><a href="AvenxBridge.html">AvenxBridge</a></li><li><a href="AvenxCLI.html">AvenxCLI</a></li><li><a href="AvenxCompiler.html">AvenxCompiler</a></li><li><a href="AvenxComponent.html">AvenxComponent</a></li><li><a href="ComponentParser.html">ComponentParser</a></li><li><a href="ComputedRegistry.html">ComputedRegistry</a></li><li><a href="DomPatcher.html">DomPatcher</a></li><li><a href="DynamicEvaluator.html">DynamicEvaluator</a></li><li><a href="EventBinder.html">EventBinder</a></li><li><a href="EventExecutor.html">EventExecutor</a></li><li><a href="ExpressionParser.html">ExpressionParser</a></li><li><a href="HtmlDiff.html">HtmlDiff</a></li><li><a href="HtmlEscaper.html">HtmlEscaper</a></li><li><a href="LifecycleManager.html">LifecycleManager</a></li><li><a href="ProxyHandlerFactory.html">ProxyHandlerFactory</a></li><li><a href="Sanitizer.html">Sanitizer</a></li><li><a href="StateFactory.html">StateFactory</a></li><li><a href="StyleProcessor.html">StyleProcessor</a></li><li><a href="TemplateRenderer.html">TemplateRenderer</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Wed Jun 10 2026 12:27:06 GMT+0200 (Mitteleuropäische Sommerzeit)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.5</a> on Thu Jun 11 2026 13:17:17 GMT+0200 (Mitteleuropäische Sommerzeit)
 </footer>
 
 <script> prettyPrint(); </script>

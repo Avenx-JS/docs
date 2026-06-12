@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Class: AvenxBridge</title>
+    <title>JSDoc: Source: lib/core/renderer/domPatch.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,145 +17,34 @@
 
 <div id="main">
 
-    <h1 class="page-title">Class: AvenxBridge</h1>
+    <h1 class="page-title">Source: lib/core/renderer/domPatch.js</h1>
 
     
 
 
 
-
-<section>
-
-<header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>AvenxBridge<span class="signature">()</span><span class="type-signature"></span></h2>
-        
-            <div class="class-description"><p>Base class for Avenx Bridges.
-Bridges are used to share state and logic across components.</p></div>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-
-    
-    <h2>Constructor</h2>
-    
-
-    
-    <h4 class="name" id="AvenxBridge"><span class="type-signature"></span>new AvenxBridge<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_core_runtime_AvenxBridge.js.html">lib/core/runtime/AvenxBridge.js</a>, <a href="lib_core_runtime_AvenxBridge.js.html#line5">line 5</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-    </div>
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Classes</h3>
-
-        <dl>
-            <dt><a href="AvenxBridge.html">AvenxBridge</a></dt>
-            <dd></dd>
-        </dl>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * Handles patching the DOM with new HTML content.
+ * Currently performs a simple innerHTML swap if the content has changed.
+ */
+export class DomPatcher {
+    /**
+     * Patches the target element with the provided HTML.
+     * @param {Element} target - The element to patch.
+     * @param {string} html - The new HTML content.
+     */
+    patch(target, html) {
+        if (target.innerHTML !== html) {
+            target.innerHTML = html;
+        }
+    }
+}
+</code></pre>
+        </article>
+    </section>
 
 
 
